@@ -1,0 +1,33 @@
+{
+    "name": "@ts-cogs/ts-cogs",
+    "description": "The Simple Tool To Make Your Components Mesh Like Cogs",
+    "license": "GPL-3.0",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/ts-cogs/ts-cogs"
+    },
+    "bugs": {
+        "url": "https://github.com/ts-cogs/ts-cogs/issues"
+    },
+    "scripts": {
+        "refresh:package": "node ./tools/json-companion/dist/cli.js && node ./tools/json-companion/dist/cli.js -d package.ts-cogs-data.jsonc -o package.ts-cogs.json",
+        "refresh": "turbo refresh && npm-run-all --parallel refresh:* && pnpm i",
+        "req": "turbo req",
+        "dev": "turbo dev",
+        "build": "turbo build"
+    },
+    "devDependencies": {
+        "turbo": "latest",
+        "npm-run-all": "^4.1.5"
+    },
+    "devEngines": {
+        "node": ">= 18",
+        "pnpm": ">= 8.9.0"
+    },
+    "workspaces": [
+        "config/*",
+        "core/*",
+        "sdlc/*",
+        "tools/*"
+    ]
+}
