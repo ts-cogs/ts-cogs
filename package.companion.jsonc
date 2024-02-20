@@ -8,7 +8,7 @@
     /**
      *  The name of the package.
      */
-    "name": "@ts-cogs/ts-cogs",
+    "name": "@ts-cogs/{{workspace.id}}",
 
     "description": "The Simple Tool To Make Your Components Mesh Like Cogs",
     
@@ -20,11 +20,11 @@
 
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/ts-cogs/ts-cogs"
+        "url": "git+https://github.com/ts-cogs/{{workspace.name}}"
     },
     
     "bugs": {
-        "url": "https://github.com/ts-cogs/ts-cogs/issues"
+        "url": "https://github.com/ts-cogs/{{workspace.name}}/issues"
     },
 
     /**
