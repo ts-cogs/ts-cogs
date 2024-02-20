@@ -40,7 +40,15 @@
         "nunjucks": "^3.2.4",
         "nunjucks-cli": "^1.0.0",
 
-        "jsonminify": "^0.4.2"
+        /**
+         * Minify JSON files -> remove comments
+         */
+        "jsonminify": "^0.4.2",
+
+        /**
+         * Command line argument parser
+         */
+        "commander": "^11.1.0"
     }
 }
   

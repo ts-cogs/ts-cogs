@@ -23,6 +23,7 @@
     "dependencies": {
         "nunjucks": "^3.2.4",
         "nunjucks-cli": "^1.0.0",
-        "jsonminify": "^0.4.2"
+        "jsonminify": "^0.4.2",
+        "commander": "^11.1.0"
     }
 }
