@@ -1,0 +1,79 @@
+/**
+ * This project collects the data from goals, requirements, and test cases
+ */
+{
+	"name": "@ts-cogs/document-data-provider",
+	"version": "0.0.1",
+
+	/**
+	 * Do not publish this package to NPM
+	 */
+	"private": true,
+
+	/**
+	 * This package provides a cli script
+	 */
+	 "bin": "./dist/cli.js",
+  
+  	"scripts": {
+    	/**
+         *
+         * Transform this file into a plain JSON file
+         */
+        "refresh:package": "node ../../tools/json-companion/dist/cli.js",
+
+		 /**
+		  * Refresh the entire project, i.e. resolve the companions to the workable JSON files
+		  * call all `refresh:*` scripts above and trigger all workspaces to do the same
+		  */
+		"refresh": "npm-run-all --parallel refresh:*",
+
+    	/**
+		 * { @implements #sdlc/bdd }
+		 *
+		 * we run cucumber-js with ts-node to support typescript, purposedly on the source file
+		 *
+		 * We search the direct subdirectories of `specs` for the feature files
+		 * !!! The folder MUST be named `features` because it will be ignored by the cucumber-js
+		 *
+		 * See `cucumber.js`-file for configuration
+		 */
+		"build": "rimraf dist && babel ./src --out-dir dist --extensions .ts,.js && chmod +rx ./dist/cli.js"
+  	},
+
+  	"devDependencies": {
+		
+		/**
+         * Run multiple npm-scripts in parallel or sequential
+         */
+		"npm-run-all": "^4.1.5",
+		
+		/**
+		 * Remove files and folders before rebuilding
+		 */
+		"rimraf": "^5.0.5",
+
+		/**
+		 * Use TypeScript, and run them with ts-node
+		 * use the project configuration
+		 */
+		"@ts-cogs/typescript-config": "workspace:*",
+		"@types/node": "^20.11.6",
+		"typescript": "^5.2.2",
+		"ts-node": "^10.9.2",
+
+		/**
+		 * Use Babel as compiler
+		 */
+		"@babel/cli": "^7.23.0",
+        "@babel/core": "^7.23.3",
+        "@ts-cogs/babel-config": "workspace:*",
+
+		/**
+		 * Use the project linter to find and fix problems in your TypeScript code
+		 */
+		"@ts-cogs/eslint-config": "workspace:*",
+		"eslint": "^8.53.0"
+
+  	}
+}
