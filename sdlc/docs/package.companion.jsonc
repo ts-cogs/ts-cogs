@@ -1,0 +1,75 @@
+/**
+ * 
+ * {@implements #docusaurus}
+ * Run `npx create-docusaurus@latest docs classic --typescript` to create a new site
+ * 
+ */
+{
+    "name": "@ts-cogs/docs",
+    "version": "0.0.1",
+    
+    /**
+     * Do not publish this package to npm
+     */
+    "private": true,
+    "scripts": {
+        /**
+         * @experiment
+         * {@implements #plainJsonWorkingFiles}
+         *
+         * Transform this file into a plain JSON file
+         */
+        "update:package": "node ../../tools/json-companion/dist/cli.js",
+
+        /**
+         * {@implements #docusaurus}
+         * these were added by the `create-docusaurus` command
+         */
+        "docusaurus": "docusaurus",
+        "start": "docusaurus start",
+        "build": "docusaurus build",
+        "swizzle": "docusaurus swizzle",
+        "deploy": "docusaurus deploy",
+        "clear": "docusaurus clear",
+        "serve": "docusaurus serve",
+        "write-translations": "docusaurus write-translations",
+        "write-heading-ids": "docusaurus write-heading-ids",
+        "typecheck": "tsc"
+    },
+    
+    "devDependencies": {
+        "@docusaurus/module-type-aliases": "3.1.1",
+        "@docusaurus/tsconfig": "3.1.1",
+        "@docusaurus/types": "3.1.1",
+        "typescript": "~5.2.2"
+    },
+    "dependencies": {
+        /**
+         * {@implements #docusaurus}
+         * these were added by the gatsby-cli new command
+         */
+        "@docusaurus/core": "3.1.1",
+        "@docusaurus/preset-classic": "3.1.1",
+        "@mdx-js/react": "^3.0.0",
+        "clsx": "^2.0.0",
+        "prism-react-renderer": "^2.3.0",
+        "react": "^18.0.0",
+        "react-dom": "^18.0.0"
+    },
+    "browserslist": {
+        "production": [
+          ">0.5%",
+          "not dead",
+          "not op_mini all"
+        ],
+        "development": [
+          "last 3 chrome version",
+          "last 3 firefox version",
+          "last 5 safari version"
+        ]
+    },
+    "engines": {
+        "node": ">=18.0"
+    }
+
+}

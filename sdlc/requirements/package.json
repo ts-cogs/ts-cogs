@@ -1,0 +1,22 @@
+{
+    "name": "@ts-cogs/requirements",
+    "version": "0.0.1",
+    "private": true,
+    "type": "commonjs",
+    "scripts": {
+        "refresh:package": "node ../../tools/json-companion/dist/cli.js",
+        "refresh": "npm-run-all --parallel refresh:*",
+        "req": "./node_modules/.bin/cucumber-js"
+    },
+    "devDependencies": {
+        "npm-run-all": "^4.1.5",
+        "@cucumber/cucumber": "^10.3.1",
+        "@cucumber/gherkin": "^27.0.0",
+        "@ts-cogs/typescript-config": "workspace:*",
+        "@types/node": "^20.11.6",
+        "typescript": "^5.2.2",
+        "ts-node": "^10.9.2",
+        "@ts-cogs/eslint-config": "workspace:*",
+        "eslint": "^8.53.0"
+    }
+}
