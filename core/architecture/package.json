@@ -1,0 +1,26 @@
+{
+  "name": "@ts-cogs/architecture",
+  "version": "0.0.1",
+  "main": "dist/index.js",
+  "scripts": {
+    "typegen": "tsc",
+    "lint": "eslint ./src -c .eslintrc.js",
+    "lint:fix": "eslint ./src -c .eslintrc.js --fix",
+    "build": "rimraf dist && tsc && babel ./src --out-dir dist --extensions .ts",
+    "/** when running in dev-mode, compile and watch the sources */": "",
+    "dev": "nodemon -e ts,js --watch src --exec \"babel ./src --out-dir dist --extensions .ts\""
+  },
+  "author": "Dr. Frank Zickert",
+  "license": "MIT",
+  "devDependencies": {
+    "@babel/cli": "^7.23.0",
+    "@babel/core": "^7.23.3",
+    "@ts-cogs/babel-config": "workspace:*",
+    "@ts-cogs/eslint-config": "workspace:*",
+    "@ts-cogs/typescript-config": "workspace:*",
+    "eslint": "^8.53.0",
+    "nodemon": "^2.0.7",
+    "rimraf": "^5.0.5",
+    "typescript": "^5.2.2"
+  }
+}
