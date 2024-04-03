@@ -1,0 +1,40 @@
+{
+  "$schema": "https://turbo.build/schema.json",
+  
+  "pipeline": {
+    "refresh": {
+      "cache": false,
+      "dependsOn": ["^refresh"]
+    },
+    "goals": {
+      "cache": false,
+      "dependsOn": ["^goals"]
+    },
+    "req": {
+      "dependsOn": ["^req"]
+    },
+    "build": {
+      "dependsOn": ["^build"],
+      "outputs": ["dist/**"]
+    },
+    "typegen": {
+      "dependsOn": ["^typegen"]
+    },
+    "lint": {
+      "dependsOn": ["^lint"]
+    },
+    "lint:fix": {
+      "dependsOn": ["^lint:fix"]
+    },
+    "dev": {
+      "cache": false,
+      "persistent": true
+    },
+    "stopdev": {
+      "dependsOn": ["^stopdev"]
+    },
+    "test": {
+      "dependsOn": ["^test"]
+    }
+  }
+}
