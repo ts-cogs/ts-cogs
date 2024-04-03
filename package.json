@@ -22,6 +22,7 @@
         "build": "turbo build"
     },
     "devDependencies": {
+        "git-cliff": "^2.2.0",
         "turbo": "latest",
         "npm-run-all": "^4.1.5"
     },
