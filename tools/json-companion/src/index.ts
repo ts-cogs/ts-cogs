@@ -19,7 +19,11 @@ const defaultOutputPath = "./package.json";
  */
 const program = new Command();
 
-program.option("-s, --source <path>", "path to the source file", "./package.companion.jsonc");
+program.option(
+    "-s, --source <path>",
+    "path to the source file",
+    "./package.companion.jsonc",
+);
 program.option("-d, --data <path>", "path to the data file", defaultDataPath);
 program.option(
     "-o, --output <path>",
@@ -35,9 +39,11 @@ program.parse(process.argv);
 /**
  * transform the output based on the source file type
  */
-const transformFn = program.opts().source.endsWith(".json") || program.opts().source.endsWith(".jsonc")
-    ? (s) => JSON.stringify(JSON.parse(jsonminify(s)), null, 4)
-    : (s) => s;
+const transformFn =
+    program.opts().source.endsWith(".json") ||
+    program.opts().source.endsWith(".jsonc")
+        ? (s) => JSON.stringify(JSON.parse(jsonminify(s)), null, 4)
+        : (s) => s;
 
 /**
  * replace the nunjucks placeholders with the actual values
