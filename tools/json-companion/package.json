@@ -1,0 +1,33 @@
+{
+    "test": "",
+    "name": "@ts-cogs/json-companion",
+    "version": "0.0.1",
+    "license": "GPL-3.0",
+    "author": "Dr. Frank Zickert",
+    "main": "",
+    "bin": "./dist/cli.js",
+    "scripts": {
+        "refresh:package": "node ./dist/cli.js",
+        "refresh": "npm-run-all --parallel refresh:* && pnpm i",
+        "lint": "eslint ./src -c .eslintrc.js",
+        "lint:fix": "eslint ./src -c .eslintrc.js --fix",
+        "build": "rimraf dist && babel ./src --out-dir dist --extensions .ts,.js && chmod +rx ./dist/cli.js"
+    },
+    "devDependencies": {
+        "@babel/cli": "^7.23.0",
+        "@babel/core": "^7.23.3",
+        "@ts-cogs/babel-config": "workspace:*",
+        "@ts-cogs/typescript-config": "workspace:*",
+        "@types/node": "^20.11.6",
+        "rimraf": "^5.0.5",
+        "typescript": "^5.2.2",
+        "@ts-cogs/eslint-config": "workspace:*",
+        "eslint": "^8.53.0"
+    },
+    "dependencies": {
+        "nunjucks": "^3.2.4",
+        "nunjucks-cli": "^1.0.0",
+        "jsonminify": "^0.4.2",
+        "commander": "^11.1.0"
+    }
+}
