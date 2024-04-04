@@ -1,14 +1,17 @@
 {
   "name": "@ts-cogs/architecture",
   "version": "0.0.1",
-  "main": "dist/index.js",
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
   "scripts": {
     {{scripts.refresh.package|safe}}
     {{scripts.refresh.all|safe}}
     "typegen": "tsc",
     "lint": "eslint ./src -c .eslintrc.js",
     "lint:fix": "eslint ./src -c .eslintrc.js --fix",
-    "build": "rimraf dist && tsc && babel ./src --out-dir dist --extensions .ts",
+    "buildBabel": "rimraf dist && tsc && babel ./src --out-dir dist --extensions .ts",
+    "build": "rimraf dist && tsup src/index.ts --format cjs,esm --dts",
     "dev": "nodemon -e ts,js --watch src --exec \"babel ./src --out-dir dist --extensions .ts\"",
     "release": "release-it"
   },
@@ -32,6 +35,7 @@
     "nodemon": "^2.0.7",
     "release-it": "^17.1.1",
     "rimraf": "^5.0.5",
+    "tsup": "^8.0.2",
     "typescript": "^5.2.2"
   }
 }

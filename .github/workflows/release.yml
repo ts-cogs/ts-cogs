@@ -44,6 +44,8 @@ jobs:
       - name: Install dependencies
         run: pnpm install --fix-lockfile
 
+      - name: Build workspaces
+        run: pnpm run build
       
       - name: Release to GH and NPM
         run: |

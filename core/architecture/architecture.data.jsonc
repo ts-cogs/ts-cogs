@@ -29,6 +29,8 @@
     /**
      * "release-it" configuration:
      * we must not use git because this is a monorepo, see: https://github.com/release-it/release-it/blob/HEAD/docs/recipes/monorepo.md
+     *
+     * bundling before publishing: see https://turbo.build/repo/docs/handbook/publishing-packages/bundling
      */
  
 }
