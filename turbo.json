@@ -35,6 +35,9 @@
     },
     "test": {
       "dependsOn": ["^test"]
+    },
+    "release": {
+      "dependsOn": ["^release"]
     }
   }
 }

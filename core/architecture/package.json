@@ -9,7 +9,8 @@
     "lint": "eslint ./src -c .eslintrc.js",
     "lint:fix": "eslint ./src -c .eslintrc.js --fix",
     "build": "rimraf dist && tsc && babel ./src --out-dir dist --extensions .ts",
-    "dev": "nodemon -e ts,js --watch src --exec \"babel ./src --out-dir dist --extensions .ts\""
+    "dev": "nodemon -e ts,js --watch src --exec \"babel ./src --out-dir dist --extensions .ts\"",
+    "release": "release-it"
   },
   
   "release-it": {
