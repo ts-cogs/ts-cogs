@@ -29,8 +29,10 @@
       "release": true
     },
     "plugins": {
-      "release-it-pnpm": {}
-    },
+      "@release-it-plugins/workspaces": {
+          "distTag": "rc"
+      }
+  },
     "git": false
   },
   "author": "Dr. Frank Zickert",
