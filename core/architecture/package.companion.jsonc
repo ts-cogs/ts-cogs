@@ -11,8 +11,9 @@
     "typegen": "tsc",
     "lint": "eslint ./src -c .eslintrc.js",
     "lint:fix": "eslint ./src -c .eslintrc.js --fix",
-    "buildBabel": "rimraf dist && tsc && babel ./src --out-dir dist --extensions .ts",
-    "build": "rimraf dist && tsup src/index.ts --format cjs,esm --dts",
+    "build": "rimraf dist && tsc && babel ./src --out-dir dist --extensions .ts",
+    {# Babel is the preferred transpiler for the project #}
+    "buildTsup": "rimraf dist && tsup src/index.ts --format cjs,esm --dts",
     "dev": "nodemon -e ts,js --watch src --exec \"babel ./src --out-dir dist --extensions .ts\"",
     {# This is a comment #}
     "changelog": "git-cliff --include-path \"core/architecture/**/*\" --repository \"../../\"  --output CHANGELOG.md",
@@ -23,10 +24,14 @@
     "access": "public"
   },
   "release-it": {
+    "github": {
+      {# see: https://github.com/release-it/release-it/blob/main/docs/github-releases.md#automated #}
+      "release": true
+    },
     "plugins": {
       "release-it-pnpm": {}
     },
-    "git": false
+    "git": true
   },
   "author": "Dr. Frank Zickert",
   "license": "MIT",

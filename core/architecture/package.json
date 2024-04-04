@@ -11,8 +11,9 @@
     "typegen": "tsc",
     "lint": "eslint ./src -c .eslintrc.js",
     "lint:fix": "eslint ./src -c .eslintrc.js --fix",
-    "buildBabel": "rimraf dist && tsc && babel ./src --out-dir dist --extensions .ts",
-    "build": "rimraf dist && tsup src/index.ts --format cjs,esm --dts",
+    "build": "rimraf dist && tsc && babel ./src --out-dir dist --extensions .ts",
+    
+    "buildTsup": "rimraf dist && tsup src/index.ts --format cjs,esm --dts",
     "dev": "nodemon -e ts,js --watch src --exec \"babel ./src --out-dir dist --extensions .ts\"",
     
     "changelog": "git-cliff --include-path \"core/architecture/**/*\" --repository \"../../\"  --output CHANGELOG.md",
@@ -23,10 +24,14 @@
     "access": "public"
   },
   "release-it": {
+    "github": {
+      
+      "release": true
+    },
     "plugins": {
       "release-it-pnpm": {}
     },
-    "git": false
+    "git": true
   },
   "author": "Dr. Frank Zickert",
   "license": "MIT",
