@@ -12,7 +12,10 @@
     "dev": "nodemon -e ts,js --watch src --exec \"babel ./src --out-dir dist --extensions .ts\"",
     "release": "release-it"
   },
-  
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/",
+    "access": "public"
+  },
   "release-it": {
     "git": false
   },
