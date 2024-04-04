@@ -9,12 +9,9 @@
     "lint": "eslint ./src -c .eslintrc.js",
     "lint:fix": "eslint ./src -c .eslintrc.js --fix",
     "build": "rimraf dist && tsc && babel ./src --out-dir dist --extensions .ts",
-    /** when running in dev-mode, compile and watch the sources */
     "dev": "nodemon -e ts,js --watch src --exec \"babel ./src --out-dir dist --extensions .ts\""
   },
-  /**
-   * we must not use git because this is a monorepo, see: https://github.com/release-it/release-it/blob/HEAD/docs/recipes/monorepo.md
-   */
+  
   "release-it": {
     "git": false
   },
