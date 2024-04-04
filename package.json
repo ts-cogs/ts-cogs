@@ -22,7 +22,7 @@
         "lint": "turbo lint",
         "lint:fix": "turbo lint:fix",
         "build": "turbo build",
-        "release": "turbo release && release-it --ci --preRelease=alpha"
+        "release": "turbo release && release-it"
     },
     "release-it": {
         
@@ -35,8 +35,7 @@
         },
         "plugins": {
             "@release-it-plugins/workspaces": {
-
-                "distTag": "rc"
+                "workspaces": ["core/architecture/*"]
             }
         }
     },
@@ -52,6 +51,7 @@
         "node": ">= 18",
         "pnpm": ">= 8.9.0"
     },
+    
     "workspaces": [
         "config/*", "docs", "core/*", "tools/*"
     ]
