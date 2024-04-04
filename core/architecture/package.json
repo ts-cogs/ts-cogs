@@ -1,6 +1,6 @@
 {
   "name": "@ts-cogs/architecture",
-  "version": "0.0.1",
+  "version": "0.0.1-alpha.2",
   "license": "GPL-3.0",
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
@@ -30,7 +30,8 @@
     },
     "plugins": {
       "@release-it-plugins/workspaces": {
-          "workspaces": ["dist/*"]
+        
+        "workspaces": ["dist/*"]
       }
   },
     "git": false
