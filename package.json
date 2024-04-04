@@ -22,37 +22,11 @@
         "test": "turbo test",
         "lint": "turbo lint",
         "lint:fix": "turbo lint:fix",
-        "build": "turbo build",
-        
-        "release": "release-it && turbo release"
+        "build": "turbo build"
     },
-    "release-it": {
-        
-        "git": {
-            "requireCleanWorkingDir": false
-        },
-
-        "npm": {
-            "publish": false,
-            "allowSameVersion": true
-        },
-        "plugins": {
-            "@release-it-plugins/workspaces": {
-                "workspaces": ["core/architecture/*"]
-            },
-            "@release-it/bumper": {
-                "out": [
-                  "package.json",
-                  "core/architecture/package.json"
-                ]
-            }
-        }
-    },
+    
     "devDependencies": {
-        "@release-it-plugins/workspaces": "^4.2.0",
-        "@release-it/bumper": "^6.0.1",
         "npm-run-all": "^4.1.5",
-        "release-it": "^17.1.1",
         "turbo": "latest"
     },
 

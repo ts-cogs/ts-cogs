@@ -1,6 +1,7 @@
 {
   "name": "@ts-cogs/architecture",
   "version": "0.0.1-alpha.1",
+  "author": "Dr. Frank Zickert",
   "license": "GPL-3.0",
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
@@ -12,36 +13,13 @@
     "lint": "eslint ./src -c .eslintrc.js",
     "lint:fix": "eslint ./src -c .eslintrc.js --fix",
     "build": "rimraf dist && tsc && babel ./src --out-dir dist --extensions .ts",
-    
-    "buildTsup": "rimraf dist && tsup src/index.ts --format cjs,esm --dts",
     "dev": "nodemon -e ts,js --watch src --exec \"babel ./src --out-dir dist --extensions .ts\"",
-    
-    "changelog": "git-cliff --include-path \"core/architecture/**/*\" --repository \"../../\"  --output CHANGELOG.md",
-    "release": ""
+    "changelog": "git-cliff --include-path \"core/architecture/**/*\" --repository \"../../\"  --output CHANGELOG.md"
   },
   "publishConfig": {
     "registry": "https://registry.npmjs.org/",
     "access": "public"
   },
-  "release-it": {
-    "github": {
-      
-      "release": true
-    },
-    "npm": {
-      "publish": false,
-      "allowSameVersion": true
-    },
-    "plugins": {
-      "@release-it-plugins/workspaces": {
-        
-        "workspaces": ["dist/*"]
-      }
-    },
-    "git": false
-  },
-  "author": "Dr. Frank Zickert",
-  "license": "MIT",
   "devDependencies": {
     "@babel/cli": "^7.23.0",
     "@babel/core": "^7.23.3",
@@ -52,7 +30,6 @@
     "changelogithub": "^0.13.5",
     "eslint": "^8.53.0",
     "nodemon": "^2.0.7",
-    "release-it": "^17.1.1",
     "rimraf": "^5.0.5",
     "tsup": "^8.0.2",
     "typescript": "^5.2.2"
