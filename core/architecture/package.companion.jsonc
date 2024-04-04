@@ -1,6 +1,6 @@
 {
   "name": "@ts-cogs/architecture",
-  "version": "0.0.1-alpha.2",
+  "version": "0.0.1-alpha.1",
   "license": "GPL-3.0",
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
@@ -17,7 +17,7 @@
     "dev": "nodemon -e ts,js --watch src --exec \"babel ./src --out-dir dist --extensions .ts\"",
     {# This is a comment #}
     "changelog": "git-cliff --include-path \"core/architecture/**/*\" --repository \"../../\"  --output CHANGELOG.md",
-    "release": "release-it"
+    "release": ""
   },
   "publishConfig": {
     "registry": "https://registry.npmjs.org/",
