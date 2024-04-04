@@ -36,8 +36,9 @@ jobs:
           cache: pnpm
 
       - name: npm config
+        #echo "//registry.npmjs.org/:_authToken=${NPM_TOKEN}" > ~/.npmrc
         run: |
-          echo "//registry.npmjs.org/:_authToken=${NPM_TOKEN}" > ~/.npmrc
+          npm config set //registry.npmjs.org/:_authToken $NPM_TOKEN
 
       - name: git config
         run: |
