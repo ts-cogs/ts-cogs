@@ -17,7 +17,7 @@
     "dev": "nodemon -e ts,js --watch src --exec \"babel ./src --out-dir dist --extensions .ts\"",
     {# This is a comment #}
     "changelog": "git-cliff --include-path \"core/architecture/**/*\" --repository \"../../\"  --output CHANGELOG.md",
-    "release": "release-it --ci --preRelease=alpha"
+    "release": "release-it --ci"
   },
   "publishConfig": {
     "registry": "https://registry.npmjs.org/",
