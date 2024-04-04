@@ -4,6 +4,7 @@
  * Add the values that apply to this working repository here
  */
 {
+    "void": "",
     "scripts": {
         "refresh": {
             /**

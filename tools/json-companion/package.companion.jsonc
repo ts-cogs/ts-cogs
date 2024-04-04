@@ -1,8 +1,9 @@
 {
-    "{{ test }}": "",
     "name": "@ts-cogs/json-companion",
     "version": "0.0.1",
     "license": "GPL-3.0",
+    {# Do not publish to NPM #}
+    "private": true,
     "author": "Dr. Frank Zickert",
     "main": "",
     "bin": "./dist/cli.js",

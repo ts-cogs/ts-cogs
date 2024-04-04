@@ -1,6 +1,7 @@
 {
   "name": "@ts-cogs/architecture",
   "version": "0.0.1",
+  "license": "GPL-3.0",
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
@@ -13,6 +14,7 @@
     "buildBabel": "rimraf dist && tsc && babel ./src --out-dir dist --extensions .ts",
     "build": "rimraf dist && tsup src/index.ts --format cjs,esm --dts",
     "dev": "nodemon -e ts,js --watch src --exec \"babel ./src --out-dir dist --extensions .ts\"",
+    {# This is a comment #}
     "changelog": "git-cliff --include-path \"core/architecture/**/*\" --repository \"../../\"  --output CHANGELOG.md",
     "release": "release-it --ci --preRelease=alpha"
   },
@@ -35,6 +37,7 @@
     "@ts-cogs/babel-config": "workspace:*",
     "@ts-cogs/eslint-config": "workspace:*",
     "@ts-cogs/typescript-config": "workspace:*",
+    "changelogithub": "^0.13.5",
     "eslint": "^8.53.0",
     "nodemon": "^2.0.7",
     "release-it": "^17.1.1",
