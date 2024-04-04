@@ -25,7 +25,11 @@
         "release": "turbo release && release-it --ci --preRelease=alpha"
     },
     "release-it": {
-        "git": false,
+        
+        "git": {
+            "requireCleanWorkingDir": false
+        },
+
         "npm": {
             "publish": false
         },
