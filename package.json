@@ -31,7 +31,8 @@
         },
 
         "npm": {
-            "publish": false
+            "publish": false,
+            "allowSameVersion": true
         },
         "plugins": {
             "@release-it-plugins/workspaces": {

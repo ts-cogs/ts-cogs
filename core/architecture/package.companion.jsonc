@@ -28,12 +28,16 @@
       {# see: https://github.com/release-it/release-it/blob/main/docs/github-releases.md#automated #}
       "release": true
     },
+    "npm": {
+      "publish": false,
+      "allowSameVersion": true
+    },
     "plugins": {
       "@release-it-plugins/workspaces": {
         {# we can use the built version #}
         "workspaces": ["dist/*"]
       }
-  },
+    },
     "git": false
   },
   "author": "Dr. Frank Zickert",

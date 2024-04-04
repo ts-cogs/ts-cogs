@@ -28,12 +28,16 @@
       
       "release": true
     },
+    "npm": {
+      "publish": false,
+      "allowSameVersion": true
+    },
     "plugins": {
       "@release-it-plugins/workspaces": {
         
         "workspaces": ["dist/*"]
       }
-  },
+    },
     "git": false
   },
   "author": "Dr. Frank Zickert",
