@@ -1,9 +1,7 @@
 #########################################################
 #
 # Deploy Docs to GitHub Pages
-# we use the domain www.ts-cogs.dev
-# Since this repo is not public, we can't use GH pages.
-# Therefore, run it from the ts-cogs repo.
+# we use the domain www.ts-cogs.dev hosted on GH pages
 #
 #########################################################
 

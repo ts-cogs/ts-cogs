@@ -3,8 +3,8 @@
   "version": "0.0.1",
   "main": "dist/index.js",
   "scripts": {
-    
-    
+    {{scripts.refresh.package|safe}}
+    {{scripts.refresh.all|safe}}
     "typegen": "tsc",
     "lint": "eslint ./src -c .eslintrc.js",
     "lint:fix": "eslint ./src -c .eslintrc.js --fix",

@@ -1,0 +1,29 @@
+/**
+ * This file contains all the placeholders for the architecture package
+ *
+ * Add the values that apply to this working repository here
+ */
+{
+    "scripts": {
+        "refresh": {
+            /**
+            *
+            * Transform this file into a plain JSON file
+            * 
+            * Transform the package.companion.jsonc into a plain JSON file
+            * Create the versions for ts-cogs
+            *
+            * copy the `package.ts-cogs.json` to `package.json` of the package during sync
+            */
+            "package": "\"refresh:package\": \"node ../../tools/json-companion/dist/cli.js -s package.companion.jsonc -d architecture.data.jsonc -o package.json\",",
+
+            /**
+             * Refresh the entire project, i.e. resolve the companions to the workable JSON files
+             * call all `refresh:*` scripts above and trigger all workspaces to do the same
+             */
+            "all": "\"refresh\": \"npm-run-all --parallel refresh:*\","
+        }
+        
+    }
+ 
+}

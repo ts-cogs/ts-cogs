@@ -1,6 +1,7 @@
 {
     "name": "@ts-cogs/ts-cogs",
     "description": "The Simple Tool To Make Your Components Mesh Like Cogs",
+    "author": "Dr. Frank Zickert",
     "license": "GPL-3.0",
     "repository": {
         "type": "git",
@@ -9,6 +10,7 @@
     "bugs": {
         "url": "https://github.com/ts-cogs/ts-cogs/issues"
     },
+    "workspaces": ["@ts-cogs/architecture"],
     "scripts": {
         
         
@@ -20,11 +22,22 @@
         "test": "turbo test",
         "lint": "turbo lint",
         "lint:fix": "turbo lint:fix",
-        "build": "turbo build"
+        "build": "turbo build",
+        "release": "pnpm run release --workspaces && release-it"
+    },
+    "release-it": {
+        "git": {
+            "requireCleanWorkingDir": false
+        },
+        "npm": {
+            "publish": false
+        }
     },
     "devDependencies": {
-        "turbo": "latest",
-        "npm-run-all": "^4.1.5"
+        "@release-it/bumper": "^6.0.1",
+        "npm-run-all": "^4.1.5",
+        "release-it": "^17.1.1",
+        "turbo": "latest"
     },
 
     "devEngines": {
