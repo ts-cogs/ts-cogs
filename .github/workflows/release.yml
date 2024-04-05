@@ -47,10 +47,14 @@ jobs:
       - name: Build workspaces
         run: pnpm run build
       
+      - name: Bump version
+        run: |
+          npm version prerelease --preid=alpha
+
       - name: Release to GH and NPM
         run: |
           npm config set //registry.npmjs.org/:_authToken $NPM_TOKEN
-          pnpm run release
+#          pnpm run release
         env:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
           GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}

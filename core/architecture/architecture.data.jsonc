@@ -16,7 +16,7 @@
             *
             * copy the `package.ts-cogs.json` to `package.json` of the package during sync
             */
-            "package": "\"refresh:package\": \"node ../../tools/json-companion/dist/cli.js -s package.companion.jsonc -d architecture.data.jsonc -o package.json\",",
+            "package": "\"refresh:package\": \"node ../../tools/json-companion/dist/cli.js -s package.companion.jsonc -d architecture.data.jsonc -o package.json -v $BUMPED\",",
 
             /**
              * Refresh the entire project, i.e. resolve the companions to the workable JSON files
