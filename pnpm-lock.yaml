@@ -213,6 +213,40 @@ importers:
         specifier: ~5.2.2
         version: 5.2.2
 
+  tools/bumper:
+    dependencies:
+      commander:
+        specifier: ^11.1.0
+        version: 11.1.0
+    devDependencies:
+      '@babel/cli':
+        specifier: ^7.23.0
+        version: 7.24.1(@babel/core@7.24.3)
+      '@babel/core':
+        specifier: ^7.23.3
+        version: 7.24.3
+      '@ts-cogs/babel-config':
+        specifier: workspace:*
+        version: link:../../config/babel-config
+      '@ts-cogs/eslint-config':
+        specifier: workspace:*
+        version: link:../../config/eslint-config
+      '@ts-cogs/typescript-config':
+        specifier: workspace:*
+        version: link:../../config/typescript-config
+      '@types/node':
+        specifier: ^20.11.6
+        version: 20.12.3
+      eslint:
+        specifier: ^8.53.0
+        version: 8.57.0
+      rimraf:
+        specifier: ^5.0.5
+        version: 5.0.5
+      typescript:
+        specifier: ^5.2.2
+        version: 5.2.2
+
   tools/json-companion:
     dependencies:
       commander:
@@ -8127,6 +8161,7 @@ packages:
   /is-number@7.0.0:
     resolution: {integrity: sha512-41Cifkg6e8TylSpdtTpeLVMqvSBEVzTttHvERD741+pnZ8ANv0004MRL43QKPDlK9cGvNp6NZWZUBlbGXYxxng==}
     engines: {node: '>=0.12.0'}
+    requiresBuild: true
 
   /is-obj@1.0.1:
     resolution: {integrity: sha512-l4RyHgRqGN4Y3+9JHVrNqO+tN0rV5My76uW5/nuO4K1b6vw5G8d/cmFjP9tRfEsdhZNt0IFdZuK/c2Vr4Nb+Qg==}
