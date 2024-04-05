@@ -1,6 +1,6 @@
 {
-  "name": "@ts-cogs/architecture",
-  "version": "v0.0.0",
+  "name": "@ts-cogs/void",
+  "version": "",
   "author": "Dr. Frank Zickert",
   "license": "GPL-3.0",
   "main": "./dist/index.js",
@@ -14,7 +14,8 @@
     "lint:fix": "eslint ./src -c .eslintrc.js --fix",
     "build": "rimraf dist && tsc && babel ./src --out-dir dist --extensions .ts",
     "dev": "nodemon -e ts,js --watch src --exec \"babel ./src --out-dir dist --extensions .ts\"",
-    "changelog": "git-cliff --include-path \"core/architecture/**/*\" --repository \"../../\"  --output CHANGELOG.md"
+    "changelog": "git-cliff --include-path \"core/architecture/**/*\" --repository \"../../\"  --output CHANGELOG.md",
+    "release": "pnpm publish --access public --no-git-checks"
   },
   "publishConfig": {
     "registry": "https://registry.npmjs.org/",

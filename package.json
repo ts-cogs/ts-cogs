@@ -3,7 +3,7 @@
     "description": "The Simple Tool To Make Your Components Mesh Like Cogs",
     "author": "Dr. Frank Zickert",
     "license": "GPL-3.0",
-    "version": "v0.0.0",
+    "version": "",
     "repository": {
         "type": "git",
         "url": "git+https://github.com/ts-cogs/ts-cogs"
@@ -23,7 +23,8 @@
         "test": "turbo test",
         "lint": "turbo lint",
         "lint:fix": "turbo lint:fix",
-        "build": "turbo build"
+        "build": "turbo build",
+        "release": "turbo release"
     },
     "devDependencies": {
         "npm-run-all": "^4.1.5",

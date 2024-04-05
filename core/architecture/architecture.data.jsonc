@@ -16,7 +16,7 @@
             *
             * copy the `package.ts-cogs.json` to `package.json` of the package during sync
             */
-            "package": "\"refresh:package\": \"node ../../tools/json-companion/dist/cli.js -s package.companion.jsonc -d architecture.data.jsonc -o package.json -v $BUMPED\",",
+            "package": "\"refresh:package\": \"node ../../tools/json-companion/dist/cli.js -s package.companion.jsonc -d architecture.data.jsonc -o package.json\",",
 
             /**
              * Refresh the entire project, i.e. resolve the companions to the workable JSON files
@@ -27,11 +27,4 @@
         
     }
 
-    /**
-     * "release-it" configuration:
-     * we must not use git because this is a monorepo, see: https://github.com/release-it/release-it/blob/HEAD/docs/recipes/monorepo.md
-     *
-     * bundling before publishing: see https://turbo.build/repo/docs/handbook/publishing-packages/bundling
-     */
- 
 }
