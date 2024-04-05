@@ -3,7 +3,7 @@
     "description": "The Simple Tool To Make Your Components Mesh Like Cogs",
     "author": "Dr. Frank Zickert",
     "license": "GPL-3.0",
-    "version": "0.0.1-rc.1",
+    "version": "0.0.1-rc.2",
     "repository": {
         "type": "git",
         "url": "git+https://github.com/ts-cogs/ts-cogs"

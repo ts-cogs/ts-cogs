@@ -15,7 +15,7 @@
     "build": "rimraf dist && tsc && babel ./src --out-dir dist --extensions .ts",
     "dev": "nodemon -e ts,js --watch src --exec \"babel ./src --out-dir dist --extensions .ts\"",
     "changelog": "git-cliff --include-path \"core/architecture/**/*\" --repository \"../../\"  --output CHANGELOG.md",
-    "release": "pnpm publish --access public --no-git-checks"
+    "release": "pnpm publish {{publishTag}}--access public --no-git-checks"
   },
   "publishConfig": {
     "registry": "https://registry.npmjs.org/",
