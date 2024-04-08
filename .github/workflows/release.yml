@@ -62,7 +62,7 @@ jobs:
               echo "The version in package.json does not correspond to the latest version in npm."
               pnpm run release
               #create release in Github: https://cli.github.com/manual/gh_release_create
-              git tag -a v$PACKAGE_VERSION
+              git tag -a v$PACKAGE_VERSION -m "Release $(if [[ $PACKAGE_VERSION == *"rc"* ]]; then echo "candidate "; fi)version $PACKAGE_VERSION"
               gh release create v$PACKAGE_VERSION $(if [[ $PACKAGE_VERSION == *"rc"* ]]; then echo " --prerelease "; fi) \ 
               --repo=ts-cogs/ts-cogs \
               -F CHANGELOG.md
