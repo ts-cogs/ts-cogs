@@ -63,9 +63,6 @@ jobs:
           else
               echo "The version in package.json does not correspond to the latest version in npm."
               pnpm run release
-              gh release create v$PACKAGE_VERSION $(if [[ $PACKAGE_VERSION == *"rc"* ]]; then echo " --prerelease "; fi) \ 
-              --repo=ts-cogs/ts-cogs \
-              -F CHANGELOG.md
           fi
           
         env:
@@ -81,9 +78,21 @@ jobs:
         uses: actions/github-script@v5
         with:
           script: |
-            github.rest.git.createRef({
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              ref: 'refs/tags/v${{ needs.release.output.PACKAGE_VERSION}}',
-              sha: context.sha
+            github.rest.git.createTag({
+              owner: 'ts-cogs',
+              repo: 'ts-cogs',
+              tag: 'v${{ needs.release.output.PACKAGE_VERSION}}',
+              message: 'Release $(if [[ ${{ needs.release.output.PACKAGE_VERSION}} == *"rc"* ]]; then echo "candidate "; fi) v${{ needs.release.output.PACKAGE_VERSION}}'
             })
+
+      - name: Create GH Release
+        uses: actions/github-script@v5
+        with:
+          script: |
+            github.rest.git.createTag({
+              owner: 'ts-cogs',
+              repo: 'ts-cogs',
+              tag_name: 'v${{ needs.release.output.PACKAGE_VERSION}}',
+              prerelease: $(if [[ ${{ needs.release.output.PACKAGE_VERSION}} == *"rc"* ]]; then echo "true "; else echo "false"; fi)
+            })
+       
