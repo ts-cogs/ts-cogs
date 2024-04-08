@@ -51,7 +51,18 @@ jobs:
       - name: Release to NPM
         run: |
           npm config set //registry.npmjs.org/:_authToken $NPM_TOKEN
-          pnpm run release
+          # Read version from package.json
+          PACKAGE_VERSION=$(jq -r .version package.json)
+          # Get the latest version from npm
+          NPM_VERSION=$(npm show @ts-cogs/void version)
+          # Compare the two versions
+          if [ "$PACKAGE_VERSION" == "$NPM_VERSION" ]; then
+              echo "The version in package.json corresponds to the latest version in npm."
+          else
+              echo "The version in package.json does not correspond to the latest version in npm."
+              pnpm run release
+          fi
+          
         env:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
           GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
