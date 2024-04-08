@@ -63,7 +63,7 @@ jobs:
           echo "NPM_VERSION=$NPM_VERSION" >> $GITHUB_OUTPUT
           CREATE_RELEASE=$(if [[ $PACKAGE_VERSION == *"rc"* ]]; then echo "false"; else echo "true"; fi)
           echo "CREATE_RELEASE=$CREATE_RELEASE" >> $GITHUB_OUTPUT
-          echo "versions: $PACKAGE_VERSION - $NPM_VERSION - CREATE_RELEASE"
+          echo "versions: $PACKAGE_VERSION - $NPM_VERSION - $CREATE_RELEASE"
           # Compare the two versions
           if [ "$PACKAGE_VERSION" == "$NPM_VERSION" ]; then
               echo "The version in package.json corresponds to the latest version in npm."
@@ -80,7 +80,7 @@ jobs:
   tag:
     runs-on: ubuntu-latest
     needs: [release]
-    if: ${{ needs.release.outputs.CREATE_RELEASE }} == true && needs.release.outputs.PACKAGE_VERSION != needs.release.outputs.NPM_VERSION }}
+    if: ${{ needs.release.outputs.CREATE_RELEASE == true && needs.release.outputs.PACKAGE_VERSION != needs.release.outputs.NPM_VERSION }}
     steps:
       - uses: actions/checkout@v4
         with:
