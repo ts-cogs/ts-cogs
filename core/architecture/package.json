@@ -1,6 +1,6 @@
 {
   "name": "@ts-cogs/void",
-  "version": "0.1.0",
+  "version": "0.1.1-rc.1",
   "author": "Dr. Frank Zickert",
   "license": "GPL-3.0",
   "main": "./dist/index.js",
