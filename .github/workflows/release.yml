@@ -75,8 +75,9 @@ jobs:
     if: ${{ needs.release.output.PACKAGE_VERSION}} != ${{ needs.release.output.NPM_VERSION}}
     steps:
       - name: Create tag
-        uses: actions/github-script@v5
+        uses: actions/github-script@v7
         with:
+          github-token: "${{ secrets.GH_TOKEN }}"
           script: |
             github.rest.git.createTag({
               owner: 'ts-cogs',
@@ -86,8 +87,9 @@ jobs:
             })
 
       - name: Create GH Release
-        uses: actions/github-script@v5
+        uses: actions/github-script@v7
         with:
+          github-token: "${{ secrets.GH_TOKEN }}"
           script: |
             github.rest.git.createTag({
               owner: 'ts-cogs',
