@@ -57,6 +57,7 @@ jobs:
           # Get the latest version from npm
           NPM_VERSION=$(npm show @ts-cogs/void version)
           echo "NPM_VERSION=$NPM_VERSION" >> $GITHUB_OUTPUT
+          echo "versions: $PACKAGE_VERSION - $NPM_VERSION"
           # Compare the two versions
           if [ "$PACKAGE_VERSION" == "$NPM_VERSION" ]; then
               echo "The version in package.json corresponds to the latest version in npm."
@@ -73,7 +74,7 @@ jobs:
   tag:
     runs-on: ubuntu-latest
     needs: [release]
-    if: ${{ needs.release.output.PACKAGE_VERSION}} != ${{ needs.release.output.NPM_VERSION}}
+    if: ${{ needs.release.outputs.PACKAGE_VERSION}} != ${{ needs.release.outputs.NPM_VERSION}}
     steps:
       - uses: actions/checkout@v4
         with:
@@ -82,7 +83,8 @@ jobs:
       # use Github cli in actions: https://docs.github.com/en/actions/using-workflows/using-github-cli-in-workflows
       # GH CLI create Release: https://cli.github.com/manual/gh_release_create
       - name: Create GH Release
-        run: gh release create v${{ needs.release.output.PACKAGE_VERSION}} --notes "bugfix release"
+        run: gh release create $PACKAGE_VERSION --notes "bugfix release"
         env:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
+          PACKAGE_VERSION: ${{ needs.release.outputs.PACKAGE_VERSION}}
             
