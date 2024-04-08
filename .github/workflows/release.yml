@@ -53,16 +53,16 @@ jobs:
           npm config set //registry.npmjs.org/:_authToken $NPM_TOKEN
           # Read version from package.json
           PACKAGE_VERSION=$(jq -r .version package.json)
+          echo "PACKAGE_VERSION=$PACKAGE_VERSION >> $GITHUB_OUTPUT
           # Get the latest version from npm
           NPM_VERSION=$(npm show @ts-cogs/void version)
+          echo "NPM_VERSION=$NPM_VERSION >> $GITHUB_OUTPUT
           # Compare the two versions
           if [ "$PACKAGE_VERSION" == "$NPM_VERSION" ]; then
               echo "The version in package.json corresponds to the latest version in npm."
           else
               echo "The version in package.json does not correspond to the latest version in npm."
               pnpm run release
-              #create release in Github: https://cli.github.com/manual/gh_release_create
-              git tag -a v$PACKAGE_VERSION -m "Release $(if [[ $PACKAGE_VERSION == *"rc"* ]]; then echo "candidate "; fi)version $PACKAGE_VERSION"
               gh release create v$PACKAGE_VERSION $(if [[ $PACKAGE_VERSION == *"rc"* ]]; then echo " --prerelease "; fi) \ 
               --repo=ts-cogs/ts-cogs \
               -F CHANGELOG.md
@@ -71,3 +71,18 @@ jobs:
         env:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
           GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+
+  tag:
+    needs: [release]
+    if: ${{ needs.release.output.PACKAGE_VERSION}} != ${{ needs.release.output.NPM_VERSION}}
+
+   - name: Create tag
+        uses: actions/github-script@v5
+        with:
+          script: |
+            github.rest.git.createRef({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              ref: 'refs/tags/v${{ needs.release.output.PACKAGE_VERSION}}',
+              sha: context.sha
+            })
