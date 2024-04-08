@@ -19,6 +19,8 @@ jobs:
   release:
     name: Release to GitHub and npm
     runs-on: ubuntu-latest
+    outputs:
+      PACKAGE_VERSION: ${{ steps.npm.outputs.PACKAGE_VERSION }}
     steps:
       - uses: actions/checkout@v4
         with:
@@ -49,6 +51,7 @@ jobs:
       
 
       - name: Release to NPM
+        id: npm
         run: |
           npm config set //registry.npmjs.org/:_authToken $NPM_TOKEN
           # Read version from package.json
