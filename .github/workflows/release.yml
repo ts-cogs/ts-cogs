@@ -82,7 +82,7 @@ jobs:
       # use Github cli in actions: https://docs.github.com/en/actions/using-workflows/using-github-cli-in-workflows
       # GH CLI create Release: https://cli.github.com/manual/gh_release_create
       - name: Create GH Release
-        - run: gh release create v${{ needs.release.output.PACKAGE_VERSION}} --notes "bugfix release"
-          env:
-            GH_TOKEN: ${{ secrets.GH_TOKEN }}
+        run: gh release create v${{ needs.release.output.PACKAGE_VERSION}} --notes "bugfix release"
+        env:
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
             
