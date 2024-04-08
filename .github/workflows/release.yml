@@ -89,11 +89,11 @@ jobs:
       
       # Print result using the env variable.
       - run: |
-        echo "Tag already present: ${{ env.TAG_EXISTS }}"
+          echo "Tag already present: ${{ env.TAG_EXISTS }}"
 
       # Print result using the action output.
       - run: |
-        echo "Tag already present: ${{ steps.tag_create.outputs.tag_exists }}"
+          echo "Tag already present: ${{ steps.tag_create.outputs.tag_exists }}"
 
 
       - name: Create GH Release
